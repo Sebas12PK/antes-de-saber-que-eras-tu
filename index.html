@@ -86,6 +86,13 @@ p{
         transform:translateY(0);
     }
 }
+.historia{
+    display:none;
+    position:relative;
+    z-index:2;
+    padding:30px;
+    animation:entrada 2s ease;
+}
 
 </style>
 
@@ -117,11 +124,27 @@ Esta es la nuestra.
 
 <script>
 function abrirHistoria(){
-    alert("Nuestra historia apenas comienza...");
+    document.querySelector(".content").style.display = "none";
+    document.querySelector(".historia").style.display = "block";
 }
 </script>
 
 </div>
+<div class="historia">
 
+<h1>Capítulo II</h1>
+
+<p>
+No todos los recuerdos necesitan una fecha,
+porque algunos simplemente se quedan viviendo en el corazón.
+</p>
+
+<p>
+Aquí estarán nuestras fotografías,
+nuestros momentos y todo aquello que nos recuerda
+por qué seguimos eligiéndonos.
+</p>
+
+</div>
 </body>
 </html>
