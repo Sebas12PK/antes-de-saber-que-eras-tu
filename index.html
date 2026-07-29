@@ -102,10 +102,52 @@ p{
 }
 
 .galeria img{
-    width:250px;
+    width:100%;
+    max-width:320px;
+    height:auto;
     border-radius:15px;
+    display:block;
+}
+.intro1{
+    color:white;
+    font-size:20px;
+    text-align:center;
+    margin-top:30px;
+    opacity:0;
+    animation:aparecer 2s forwards;
 }
 
+.intro2{
+    color:white;
+    font-size:20px;
+    text-align:center;
+    margin-top:20px;
+    opacity:0;
+    animation:aparecer 2s forwards;
+    animation-delay:3s;
+}
+
+.ultimo{
+    color:#f5d76e;
+    text-align:center;
+    margin-top:60px;
+    font-size:34px;
+    opacity:0;
+    animation:aparecer 2s forwards;
+    animation-delay:6s;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style>
 
 </head>
@@ -118,6 +160,17 @@ p{
 
 <h1>
 Antes de saber que eras tú
+ <p class="intro1">
+Creí que el lugar correcto para contar nuestra historia era un libro...
+</p>
+
+<p class="intro2">
+Hasta que recordé que nuestra historia sigue escribiéndose todos los días.
+</p>
+
+<h2 class="ultimo">
+El capítulo que el papel nunca pudo contener.
+</h2>
 </h1>
 
 <p>
