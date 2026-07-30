@@ -391,8 +391,8 @@ Esta es la nuestra.
 🎹 Escuchar nuestra canción
 </button>
 
-<audio id="cancion" controls>
-    <source src="Canción/Mi mujer.mp3" type="audio/mpeg">
+<audio id="cancion" preload="auto">
+    <source src="https://sebas12pk.github.io/antes-de-saber-que-eras-tu/Cancion/Mi%20mujer.mp3" type="audio/mpeg">
 </audio>
 
  </div>
@@ -474,18 +474,17 @@ por qué seguimos eligiéndonos.
 
 function abrirHistoria(){
 
-document.querySelector(".content").style.display="none";
-
-document.querySelector(".historia").style.display="block";
+    document.querySelector(".content").style.display="none";
+    document.querySelector(".historia").style.display="block";
 
 }
 
-
 function reproducirMusica(){
 
-    let musica = document.getElementById("cancion");
+    const musica = document.getElementById("cancion");
 
-    musica.play();
+    musica.currentTime = 0;
+    musica.play().catch(error => console.log(error));
 
 }
     
