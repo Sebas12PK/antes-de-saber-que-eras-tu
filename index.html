@@ -360,6 +360,15 @@ Esta es la nuestra.
 ❤️ Entrar a nuestros recuerdos
 </button>
 
+<br><br>
+
+<button onclick="reproducirMusica()">
+🎹 Escuchar nuestra canción
+</button>
+
+<audio id="cancion">
+    <source src="Musica/Experience.mp3" type="audio/mpeg">
+</audio>     
 
 </div>
 
@@ -420,6 +429,14 @@ document.querySelector(".historia").style.display="block";
 
 }
 
+function reproducirMusica(){
+
+    let musica = document.getElementById("cancion");
+
+    musica.play();
+
+}
+    
 </script>
 
 
