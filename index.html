@@ -324,7 +324,53 @@ button{
         transform:translateY(0) scale(1);
     }
 
+/* Estrellas */
+
+.stars{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    overflow:hidden;
+
 }
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:.2;
+
+    animation:brillar 3s infinite alternate;
+
+}
+
+@keyframes brillar{
+
+    from{
+
+        opacity:.2;
+        transform:scale(1);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1.8);
+
+    }
 
 
 
@@ -337,6 +383,8 @@ button{
 
 
 <div class="sky"></div>
+
+ <div class="stars" id="stars"></div>   
 
 
 <img class="girasol g1" src="Imagenes/Girasoles.webp">
@@ -485,6 +533,22 @@ function reproducirMusica(){
 
     musica.currentTime = 0;
     musica.play().catch(error => console.log(error));
+  }
+
+const estrellas = document.getElementById("stars");
+
+for(let i=0;i<80;i++){
+
+    let star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=Math.random()*4+"s";
+
+    estrellas.appendChild(star);
 
 }
     
