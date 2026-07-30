@@ -69,33 +69,53 @@ body{
 /* Girasoles */
 
 .girasol{
-
     position:fixed;
-
     width:180px;
-
     z-index:1;
-
     opacity:.9;
+    animation:girarFlotar 8s ease-in-out infinite;
+}
+
+@keyframes girarFlotar{
+
+    0%{
+        transform:rotate(0deg) translateY(0);
+    }
+
+    25%{
+        transform:rotate(4deg) translateY(-12px);
+    }
+
+    50%{
+        transform:rotate(0deg) translateY(-20px);
+    }
+
+    75%{
+        transform:rotate(-4deg) translateY(-12px);
+    }
+
+    100%{
+        transform:rotate(0deg) translateY(0);
+    }
 
 }
 
-
 .g1{
 
-    bottom:-20px;
-    left:-30px;
+    bottom:-30px;
+    left:-40px;
+    width:220px;
 
 }
 
 
 .g2{
 
-    bottom:-20px;
+    top:40px;
     right:-30px;
+    width:140px;
 
 }
-
 
 /* Contenido */
 
