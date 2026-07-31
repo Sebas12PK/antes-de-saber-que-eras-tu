@@ -1,436 +1,768 @@
-</div>
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== CAPÍTULO II ===== -->
-
-
-<div class="historia">
-
-
-<h1>
-Capítulo II
-</h1>
-
-
-<p>
-No todos los recuerdos necesitan una fecha,
-porque algunos simplemente se quedan viviendo en el corazón.
-</p>
-
-
-<p>
-Cada fotografía guarda un instante,
-una mirada, una sonrisa y una pequeña parte de nuestra historia.
-</p>
-
-
-
-<div class="galeria">
-
-
-<img src="Recuerdos/foto1.jpg.jpeg">
-<img src="Recuerdos/foto2.jpg.jpeg">
-<img src="Recuerdos/foto3.jpg.jpeg">
-<img src="Recuerdos/foto4.jpg.jpeg">
-<img src="Recuerdos/foto5.jpg.jpeg">
-<img src="Recuerdos/foto6.jpg.jpeg">
-
-<img src="Recuerdos/foto7.jpg.jpeg">
-<img src="Recuerdos/foto8.jpg.jpeg">
-<img src="Recuerdos/foto9.jpg.jpeg">
-<img src="Recuerdos/foto10.jpg.jpeg">
-<img src="Recuerdos/foto11.jpg.jpeg">
-<img src="Recuerdos/foto12.jpg.jpeg">
-
-<img src="Recuerdos/foto13.jpg.jpeg">
-<img src="Recuerdos/foto14.jpg.jpeg">
-<img src="Recuerdos/foto15.jpg.jpeg">
-<img src="Recuerdos/foto16.jpg.jpeg">
-<img src="Recuerdos/foto17.jpg.jpeg">
-<img src="Recuerdos/foto18.jpg.jpeg">
-
-<img src="Recuerdos/foto19.jpg.jpeg">
-<img src="Recuerdos/foto20.jpg.jpeg">
-<img src="Recuerdos/foto21.jpg.jpeg">
-<img src="Recuerdos/foto22.jpg.jpeg">
-<img src="Recuerdos/foto23.jpg.jpeg">
-<img src="Recuerdos/foto24.jpg.jpeg">
-
-<img src="Recuerdos/foto25.jpg.jpeg">
-<img src="Recuerdos/foto26.jpg.jpeg">
-<img src="Recuerdos/foto27.jpg.jpeg">
-<img src="Recuerdos/foto28.jpg.jpeg">
-<img src="Recuerdos/foto29.jpg.jpeg">
-<img src="Recuerdos/foto30.jpg.jpeg">
-
-<img src="Recuerdos/foto31.jpg.jpeg">
-<img src="Recuerdos/foto32.jpg.jpeg">
-<img src="Recuerdos/foto33.jpg.jpeg">
-
-
-</div>
-
-
-</div>
-
-
-
+<title>Antes de saber que eras tú</title>
 
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-/* ===== CAPÍTULO II ESTILO ÁLBUM ===== */
+body{
 
+    font-family:Georgia,serif;
+    overflow-x:hidden;
+    background:#000;
+    color:white;
 
-.historia{
+}
 
-    display:none;
+/* =======================
+        CIELO
+======================= */
 
-    position:relative;
+.sky{
+
+    position:fixed;
+    inset:0;
+
+    background-image:url("Imagenes/Cielo.jpg");
+    background-size:cover;
+    background-position:center;
+
+    z-index:-5;
+
+    animation:cielo 40s ease-in-out infinite alternate;
+
+}
+
+@keyframes cielo{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+    /* =======================
+      ESTRELLAS
+======================= */
+
+.stars{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-4;
+
+}
+
+.star{
+
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+
+    animation:parpadear infinite alternate;
+
+}
+
+@keyframes parpadear{
+
+    from{
+
+        opacity:.2;
+        transform:scale(1);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1.8);
+
+    }
+
+}
+
+/* =======================
+      PARTICULAS
+======================= */
+
+.particulas{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-3;
+
+}
+
+.particula{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#f8d86a;
+
+    opacity:.5;
+
+    animation:flotar linear infinite;
+
+}
+
+@keyframes flotar{
+
+    from{
+
+        transform:translateY(110vh);
+
+    }
+
+    to{
+
+        transform:translateY(-20vh);
+
+    }
+
+}
+
+/* =======================
+      GIRASOLES
+======================= */
+
+.girasol{
+
+    position:fixed;
+
+    width:220px;
 
     z-index:5;
 
-    padding:30px;
+    animation:balanceo 7s ease-in-out infinite;
+
+}
+
+.g1{
+
+    left:-40px;
+    bottom:-30px;
+
+}
+
+.g2{
+
+    right:-40px;
+    top:-30px;
+
+}
+
+@keyframes balanceo{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:rotate(5deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+/* =======================
+        LIBRO
+======================= */
+
+.libro{
+
+    position:relative;
+    z-index:10;
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+.libro h1{
+
+    font-size:55px;
 
     max-width:800px;
 
-    animation:entrada 2s ease;
+    margin-bottom:30px;
+
+    text-shadow:
+    0 0 10px #f8d86a,
+    0 0 25px #f8d86a;
+
+    animation:entrada 3s ease;
 
 }
 
 
+.frase{
 
-.galeria{
+    font-size:25px;
 
-    display:flex;
+    font-style:italic;
 
-    flex-direction:column;
+    max-width:600px;
 
-    align-items:center;
+    line-height:1.6;
 
-    gap:40px;
+    margin-bottom:40px;
 
 }
 
 
+.libro button{
 
-.galeria img{
+    padding:15px 35px;
 
-    width:100%;
+    border:none;
 
-    max-width:350px;
+    border-radius:30px;
+
+    background:#f8d86a;
+
+    color:#000;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.libro button:hover{
+
+    transform:scale(1.1);
+
+    box-shadow:0 0 20px #f8d86a;
+
+}
+
+/* =======================
+        CAPITULOS
+======================= */
+
+.capitulo{
+
+    margin-top:80px;
+
+    max-width:800px;
+
+    padding:50px 40px;
+
+    background:rgba(0,0,0,.45);
+
+    border:1px solid rgba(248,216,106,.4);
 
     border-radius:20px;
 
-    box-shadow:0 0 20px rgba(255,255,255,.5);
+    backdrop-filter:blur(5px);
 
-    opacity:0;
-
-    transform:translateY(50px);
-
-    animation:fotoEntrada 1.5s forwards;
+    animation:entrada 3s ease;
 
 }
 
 
+.capitulo h2{
 
-.galeria img:nth-child(1){animation-delay:.2s;}
-.galeria img:nth-child(2){animation-delay:.4s;}
-.galeria img:nth-child(3){animation-delay:.6s;}
-.galeria img:nth-child(4){animation-delay:.8s;}
-.galeria img:nth-child(5){animation-delay:1s;}
+    font-size:45px;
+
+    color:#f8d86a;
+
+    margin-bottom:20px;
+
+}
 
 
+.capitulo h3{
 
-@keyframes fotoEntrada{
+    font-size:32px;
+
+    margin-bottom:40px;
+
+}
+
+
+.capitulo p{
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    text-align:justify;
+
+    margin-bottom:30px;
+
+    color:#f5f5f5;
+
+}    
+
+@keyframes entrada{
 
 from{
 
-opacity:0;
+    opacity:0;
 
-transform:translateY(50px) scale(.95);
+    transform:translateY(40px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+}
+
+/* =======================
+      EFECTO LIBRO
+======================= */
+
+.capitulo{
+
+    opacity:0;
+
+    animation:aparecerCapitulo 2s ease forwards;
+
+}
+
+
+@keyframes aparecerCapitulo{
+
+from{
+
+    opacity:0;
+
+    transform:translateY(60px);
 
 }
 
 
 to{
 
-opacity:1;
+    opacity:1;
 
-transform:translateY(0) scale(1);
-
-}
+    transform:translateY(0);
 
 }
 
-
-</style>
-
-
-
-
-<script>
-
-
-function abrirHistoria(){
-
-
-document.querySelector(".content").style.display="none";
-
-
-document.querySelector(".historia").style.display="block";
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-
 }
 
+/* =======================
+        PORTADA
+======================= */
 
+.portada{
 
-
-function reproducirMusica(){
-
-
-const musica=document.getElementById("cancion");
-
-
-musica.play();
-
-
-}
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
-
-
-</div>
-
-
-
-<!-- ===== CAPÍTULO II ===== -->
-
-
-<div class="historia">
-
-
-<h1>
-Capítulo II
-</h1>
-
-
-<p>
-No todos los recuerdos necesitan una fecha,
-porque algunos simplemente se quedan viviendo en el corazón.
-</p>
-
-
-<p>
-Cada fotografía guarda un instante,
-una mirada, una sonrisa y una pequeña parte de nuestra historia.
-</p>
-
-
-
-<div class="galeria">
-
-
-<img src="Recuerdos/foto1.jpg.jpeg">
-<img src="Recuerdos/foto2.jpg.jpeg">
-<img src="Recuerdos/foto3.jpg.jpeg">
-<img src="Recuerdos/foto4.jpg.jpeg">
-<img src="Recuerdos/foto5.jpg.jpeg">
-<img src="Recuerdos/foto6.jpg.jpeg">
-
-<img src="Recuerdos/foto7.jpg.jpeg">
-<img src="Recuerdos/foto8.jpg.jpeg">
-<img src="Recuerdos/foto9.jpg.jpeg">
-<img src="Recuerdos/foto10.jpg.jpeg">
-<img src="Recuerdos/foto11.jpg.jpeg">
-<img src="Recuerdos/foto12.jpg.jpeg">
-
-<img src="Recuerdos/foto13.jpg.jpeg">
-<img src="Recuerdos/foto14.jpg.jpeg">
-<img src="Recuerdos/foto15.jpg.jpeg">
-<img src="Recuerdos/foto16.jpg.jpeg">
-<img src="Recuerdos/foto17.jpg.jpeg">
-<img src="Recuerdos/foto18.jpg.jpeg">
-
-<img src="Recuerdos/foto19.jpg.jpeg">
-<img src="Recuerdos/foto20.jpg.jpeg">
-<img src="Recuerdos/foto21.jpg.jpeg">
-<img src="Recuerdos/foto22.jpg.jpeg">
-<img src="Recuerdos/foto23.jpg.jpeg">
-<img src="Recuerdos/foto24.jpg.jpeg">
-
-<img src="Recuerdos/foto25.jpg.jpeg">
-<img src="Recuerdos/foto26.jpg.jpeg">
-<img src="Recuerdos/foto27.jpg.jpeg">
-<img src="Recuerdos/foto28.jpg.jpeg">
-<img src="Recuerdos/foto29.jpg.jpeg">
-<img src="Recuerdos/foto30.jpg.jpeg">
-
-<img src="Recuerdos/foto31.jpg.jpeg">
-<img src="Recuerdos/foto32.jpg.jpeg">
-<img src="Recuerdos/foto33.jpg.jpeg">
-
-
-</div>
-
-
-</div>
-
-
-
-
-<style>
-
-
-/* ===== CAPÍTULO II ESTILO ÁLBUM ===== */
-
-
-.historia{
-
-    display:none;
-
-    position:relative;
-
-    z-index:5;
-
-    padding:30px;
-
-    max-width:800px;
-
-    animation:entrada 2s ease;
-
-}
-
-
-
-.galeria{
+    min-height:100vh;
 
     display:flex;
 
     flex-direction:column;
 
+    justify-content:center;
+
     align-items:center;
 
-    gap:40px;
+    text-align:center;
+
+    padding:40px;
 
 }
 
 
+.portada h1{
 
-.galeria img{
+    font-size:60px;
 
-    width:100%;
+    margin-bottom:25px;
 
-    max-width:350px;
+    color:#fff;
+
+    text-shadow:
+    0 0 15px #f8d86a,
+    0 0 35px #f8d86a;
+
+}
+
+
+.portada .subtitulo{
+
+    font-size:28px;
+
+    font-style:italic;
+
+    max-width:700px;
+
+    line-height:1.6;
+
+}
+
+
+.fecha{
+
+    margin-top:40px;
+
+    font-size:22px;
+
+    color:#f8d86a;
+
+    letter-spacing:3px;
+
+}
+
+
+.portada img{
+
+    width:260px;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    margin-top:40px;
+
+    border:3px solid #f8d86a;
+
+    box-shadow:0 0 30px #f8d86a;
+
+} 
+
+/* =======================
+        DEDICATORIA
+======================= */
+
+.dedicatoria{
+
+    max-width:700px;
+
+    margin:80px auto;
+
+    padding:40px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    line-height:1.8;
+
+    font-style:italic;
+
+    background:rgba(0,0,0,.35);
 
     border-radius:20px;
 
-    box-shadow:0 0 20px rgba(255,255,255,.5);
-
-    opacity:0;
-
-    transform:translateY(50px);
-
-    animation:fotoEntrada 1.5s forwards;
+    border:1px solid rgba(248,216,106,.3);
 
 }
 
 
+.dedicatoria h2{
 
-.galeria img:nth-child(1){animation-delay:.2s;}
-.galeria img:nth-child(2){animation-delay:.4s;}
-.galeria img:nth-child(3){animation-delay:.6s;}
-.galeria img:nth-child(4){animation-delay:.8s;}
-.galeria img:nth-child(5){animation-delay:1s;}
+    color:#f8d86a;
 
+    font-size:40px;
 
+    margin-bottom:30px;
 
-@keyframes fotoEntrada{
-
-from{
-
-opacity:0;
-
-transform:translateY(50px) scale(.95);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateY(0) scale(1);
-
-}
-
-}
-
-
+}    
+    
 </style>
 
+</head>
 
+<body>
 
+<div class="sky"></div>
+
+<div class="stars"></div>
+
+<div class="particulas"></div>
+
+<img class="girasol g1" src="Imagenes/Girasoles.webp">
+
+<img class="girasol g2" src="Imagenes/Girasoles.webp">
 
 <script>
 
+const estrellas=document.querySelector(".stars");
 
-function abrirHistoria(){
+for(let i=0;i<180;i++){
 
+    const e=document.createElement("div");
 
-document.querySelector(".content").style.display="none";
+    e.className="star";
 
+    e.style.left=Math.random()*100+"vw";
+    e.style.top=Math.random()*100+"vh";
 
-document.querySelector(".historia").style.display="block";
+    e.style.animationDuration=(2+Math.random()*4)+"s";
 
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
+    estrellas.appendChild(e);
 
 }
 
+const particulas=document.querySelector(".particulas");
 
+for(let i=0;i<40;i++){
 
+    const p=document.createElement("div");
 
-function reproducirMusica(){
+    p.className="particula";
 
+    p.style.left=Math.random()*100+"vw";
 
-const musica=document.getElementById("cancion");
+    p.style.animationDuration=(8+Math.random()*8)+"s";
 
+    p.style.animationDelay=Math.random()*8+"s";
 
-musica.play();
-
+    particulas.appendChild(p);
 
 }
-
-
 
 </script>
 
+
+<!-- =======================
+        LIBRO
+======================= -->
+
+<div class="libro">
+
+
+<section class="portada">
+
+
+<h1>
+Antes de saber que eras tú
+</h1>
+
+
+<p class="subtitulo">
+
+Una historia escrita con amor,
+recuerdos y promesas.
+
+</p>
+
+
+<p class="fecha">
+
+28 / 08 / 2021
+
+</p>
+
+
+<img src="Imagenes/NuestraFoto.jpg">
+
+
+</section>
+
+
+
+<audio id="musica" autoplay loop>
+
+<source src="Mi mujer.mp3" type="audio/mpeg">
+
+</audio>
+
+
+
+<section class="dedicatoria">
+
+
+<h2>
+Para ti
+</h2>
+
+
+<p>
+
+Para la persona que llegó a mi vida sin avisar,
+que convirtió momentos simples en recuerdos eternos
+y que me enseñó que el amor también se construye con paciencia,
+perdón y ganas de seguir caminando juntos.
+
+</p>
+
+
+<p>
+
+Esta historia no habla de un amor perfecto,
+sino de un amor real:
+uno que tuvo errores, aprendizajes,
+caídas y motivos para volver a elegirnos.
+
+</p>
+
+
+</section>
+    
+
+<button onclick="document.getElementById('musica').play()">
+▶ Reproducir nuestra canción
+</button>
+
+    <section class="capitulo">
+
+<h2>
+Capítulo I
+</h2>
+
+<h3>
+Antes de saber que eras tú
+</h3>
+
+<p>
+
+Todavía sonrío cuando recuerdo al niño que intentaba llamar tu atención sin saber que, años después, terminaría escribiendo un libro sobre ti.
+
+</p>
+
+<p>
+
+Hay personas que llegan a nuestra vida sin avisar, como una casualidad más del camino, pero con el tiempo descubrimos que algunas coincidencias tenían un propósito.
+
+</p>
+        
+<section class="capitulo">
+
+
+<h2>
+Capítulo I
+</h2>
+
+
+<h3>
+Antes de saber que eras tú
+</h3>
+
+
+<p>
+
+Todavía sonrío cuando recuerdo al niño que intentaba llamar tu atención sin saber que, años después, terminaría escribiendo un libro sobre ti.
+
+</p>
+
+
+<p>
+
+Hay personas que llegan a nuestra vida sin hacer ruido, como una coincidencia más del camino, pero con el tiempo entendemos que algunas casualidades tenían escrito algo mucho más grande.
+
+</p>
+
+
+<p>
+
+Antes de saber que eras tú, eras simplemente esa persona que estaba ahí, alguien que poco a poco empezó a ocupar un lugar especial sin que yo me diera cuenta.
+
+</p>
+
+
+<p>
+
+Nunca imaginé que aquella mirada, aquellos momentos pequeños y esas conversaciones terminarían convirtiéndose en la historia más importante que he vivido.
+
+</p>
+
+<p>
+
+Todavía recuerdo aquellos años en los que nuestras vidas simplemente coincidían sin saber lo que el futuro tenía preparado para nosotros. Éramos dos personas siguiendo caminos diferentes, sin imaginar que algún día nuestras historias terminarían encontrándose de una manera tan especial.
+
+</p>
+
+
+<p>
+
+Te conocí cuando éramos apenas unos niños, en quinto grado. En ese momento no sabía que aquella persona que veía entre tantas otras iba a convertirse, años después, en alguien capaz de cambiar mi forma de ver el amor y la vida.
+
+</p>
+
+
+<p>
+
+Recuerdo que intentaba llamar tu atención de la manera más inocente, con esa mezcla de nervios y curiosidad que uno siente cuando alguien empieza a importarle sin siquiera entender por qué.
+
+</p>
+
+
+<p>
+
+Pasaron los años y la vida nos llevó por caminos separados. Pero algunas personas tienen una forma extraña de volver a aparecer, como si el destino guardara ciertos encuentros para el momento correcto.
+
+</p>
+
+
+<p>
+
+Y así fue como, cuatro años después, volvimos a encontrarnos en un lugar que jamás imaginamos que sería el inicio de algo tan grande: un parque de skate.
+
+</p>
+
+
+<p>
+
+Ese día no sabíamos que aquel reencuentro sería el primer capítulo de una historia que todavía seguimos escribiendo.
+
+</p>
+    
+</section>
+
+</div>
 
 
 </body>
