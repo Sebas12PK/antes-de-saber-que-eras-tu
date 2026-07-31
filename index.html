@@ -1,445 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Antes de saber que eras tú</title>
-
-
-<style>
-
-*{
-    box-sizing:border-box;
-}
-
-
-body{
-
-    margin:0;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    color:white;
-    font-family:Georgia, serif;
-
-}
-
-
-/* Cielo estilo Van Gogh */
-
-.sky{
-
-    position:fixed;
-    inset:0;
-
-    background-image:url("Imagenes/Cielo.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    z-index:0;
-
-    animation:cielo 30s ease-in-out infinite alternate;
-
-}
-
-
-@keyframes cielo{
-
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.08);
-    }
-
-}
-
-
-/* Girasoles */
-
-.girasol{
-    position:fixed;
-    width:180px;
-    z-index:1;
-    opacity:.9;
-}
-
-@keyframes girarFlotar{
-
-    0%{
-        transform:rotate(0deg) translateY(0);
-    }
-
-    25%{
-        transform:rotate(4deg) translateY(-12px);
-    }
-
-    50%{
-        transform:rotate(0deg) translateY(-20px);
-    }
-
-    75%{
-        transform:rotate(-4deg) translateY(-12px);
-    }
-
-    100%{
-        transform:rotate(0deg) translateY(0);
-    }
-
-}
-
-.g1{
-
-    bottom:-30px;
-    left:-40px;
-    width:220px;
-
-}
-
-
-.g2{
-
-    top:-30px;
-    right:40px;
-    width:220px;
-
-}
-
-/* Contenido */
-
-.content{
-    position:relative;
-    z-index:10;
-    padding:30px;
-    color:white;
-    opacity:1;
-
-}
-
-
-h1{
-
-    font-size:48px;
-
-    text-shadow:0 0 20px white;
-
-    animation:entrada 3s ease;
-
-}
-
-
-p{
-    font-size:20px;
-    line-height:1.6;
-    color:white;
-    opacity:1;
-}
-
-
-.intro1{
-
-    opacity:0;
-
-    animation:aparecer 2s forwards;
-
-}
-
-
-.intro2{
-
-    opacity:0;
-
-    animation:aparecer 2s forwards;
-
-    animation-delay:3s;
-
-}
-
-
-.ultimo{
-
-    color:#f5d76e;
-
-    opacity:0;
-
-    animation:aparecer 2s forwards;
-
-    animation-delay:6s;
-
-}
-
- .heart{
-
-    font-size:45px;
-
-    margin:25px;
-
-    animation:latido 1.5s infinite;
-
-}
-
-
-button{
-
-    padding:15px 25px;
-
-    border:none;
-
-    border-radius:30px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-}
-
-
-
-@keyframes latido{
-
-    50%{
-
-        transform:scale(1.2);
-
-    }
-
-}
-
-
-
-@keyframes entrada{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-
-@keyframes aparecer{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-/* Capítulo II */
-
-.historia{
-
-    display:none;
-
-    position:relative;
-
-    z-index:3;
-
-    padding:30px;
-
-}
-
-
-
-.galeria{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:35px;
-
-}
-
-
-
-.galeria img{
-    width:100%;
-    max-width:320px;
-    height:auto;
-    border-radius:15px;
-    display:block;
-
-    opacity:0;
-    transform:translateY(40px);
-    animation:aparecerFoto 2s forwards;
-}
-
-
-.galeria img:nth-child(1){animation-delay:.5s;}
-.galeria img:nth-child(2){animation-delay:1s;}
-.galeria img:nth-child(3){animation-delay:1.5s;}
-.galeria img:nth-child(4){animation-delay:2s;}
-.galeria img:nth-child(5){animation-delay:2.5s;}
-.galeria img:nth-child(6){animation-delay:3s;}
-
-
-@keyframes aparecerFoto{
-
-    from{
-        opacity:0;
-        transform:translateY(40px) scale(.95);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-
- /* ===== ESTRELLAS VAN GOGH ===== */
-
-.sky::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background-image:
-        radial-gradient(circle,#fff9c4 2px,transparent 3px),
-        radial-gradient(circle,#ffffff 1.5px,transparent 2.5px),
-        radial-gradient(circle,#ffe082 3px,transparent 4px),
-        radial-gradient(circle,#fffde7 2px,transparent 3px);
-
-    background-size:
-        180px 180px,
-        250px 250px,
-        320px 320px,
-        420px 420px;
-
-    animation:brilloEstrellas 6s ease-in-out infinite alternate;
-
-    opacity:.8;
-
-}
-
-@keyframes brilloEstrellas{
-
-    from{
-
-        opacity:.5;
-        filter:drop-shadow(0 0 2px #fff8b0);
-
-    }
-
-    to{
-
-        opacity:1;
-        filter:drop-shadow(0 0 8px #ffe082);
-
-    }
-
-}   
-    
-</style>
-
-</head>
-
-
-<body>
-
-
-<div class="sky"></div>
-
-
-<img class="girasol g1" src="Imagenes/Girasoles.webp">
-
-
-<img class="girasol g2" src="Imagenes/Girasoles.webp">
-   
-
- <div class="content">
-
-
-<h1>
-Antes de saber que eras tú
-</h1>
-
-
-<p class="intro1">
-Creí que el lugar correcto para contar nuestra historia era un libro...
-</p>
-
-
-<p class="intro2">
-Hasta que recordé que nuestra historia sigue escribiéndose todos los días.
-</p>
-
-
-<h2 class="ultimo">
-El capítulo que el papel nunca pudo contener.
-</h2>
-
-
-<p>
-Hay historias que comienzan mucho antes
-de que dos personas sepan que se están buscando.
-<br><br>
-Esta es la nuestra.
-</p>
-
-
-<div class="heart">
-❤️
 </div>
 
 
-<button onclick="abrirHistoria()">
-❤️ Entrar a nuestros recuerdos
-</button>
 
-<br><br>
+<!-- ===== CAPÍTULO II ===== -->
 
-<button onclick="reproducirMusica()">
-🎹 Escuchar nuestra canción
-</button>
-
-<audio id="cancion" preload="auto">
-    <source src="https://sebas12pk.github.io/antes-de-saber-que-eras-tu/Cancion/Mi%20mujer.mp3" type="audio/mpeg">
-</audio>
-
- </div>
 
 <div class="historia">
 
@@ -456,9 +20,8 @@ porque algunos simplemente se quedan viviendo en el corazón.
 
 
 <p>
-Aquí estarán nuestras fotografías,
-nuestros momentos y todo aquello que nos recuerda
-por qué seguimos eligiéndonos.
+Cada fotografía guarda un instante,
+una mirada, una sonrisa y una pequeña parte de nuestra historia.
 </p>
 
 
@@ -467,15 +30,10 @@ por qué seguimos eligiéndonos.
 
 
 <img src="Recuerdos/foto1.jpg.jpeg">
-
 <img src="Recuerdos/foto2.jpg.jpeg">
-
 <img src="Recuerdos/foto3.jpg.jpeg">
-
 <img src="Recuerdos/foto4.jpg.jpeg">
-
 <img src="Recuerdos/foto5.jpg.jpeg">
-
 <img src="Recuerdos/foto6.jpg.jpeg">
 
 <img src="Recuerdos/foto7.jpg.jpeg">
@@ -484,24 +42,28 @@ por qué seguimos eligiéndonos.
 <img src="Recuerdos/foto10.jpg.jpeg">
 <img src="Recuerdos/foto11.jpg.jpeg">
 <img src="Recuerdos/foto12.jpg.jpeg">
+
 <img src="Recuerdos/foto13.jpg.jpeg">
 <img src="Recuerdos/foto14.jpg.jpeg">
 <img src="Recuerdos/foto15.jpg.jpeg">
 <img src="Recuerdos/foto16.jpg.jpeg">
 <img src="Recuerdos/foto17.jpg.jpeg">
 <img src="Recuerdos/foto18.jpg.jpeg">
+
 <img src="Recuerdos/foto19.jpg.jpeg">
 <img src="Recuerdos/foto20.jpg.jpeg">
 <img src="Recuerdos/foto21.jpg.jpeg">
 <img src="Recuerdos/foto22.jpg.jpeg">
 <img src="Recuerdos/foto23.jpg.jpeg">
 <img src="Recuerdos/foto24.jpg.jpeg">
+
 <img src="Recuerdos/foto25.jpg.jpeg">
 <img src="Recuerdos/foto26.jpg.jpeg">
 <img src="Recuerdos/foto27.jpg.jpeg">
 <img src="Recuerdos/foto28.jpg.jpeg">
 <img src="Recuerdos/foto29.jpg.jpeg">
 <img src="Recuerdos/foto30.jpg.jpeg">
+
 <img src="Recuerdos/foto31.jpg.jpeg">
 <img src="Recuerdos/foto32.jpg.jpeg">
 <img src="Recuerdos/foto33.jpg.jpeg">
@@ -514,25 +76,361 @@ por qué seguimos eligiéndonos.
 
 
 
-<script>
 
-function abrirHistoria(){
+<style>
 
-    document.querySelector(".content").style.display="none";
-    document.querySelector(".historia").style.display="block";
+
+/* ===== CAPÍTULO II ESTILO ÁLBUM ===== */
+
+
+.historia{
+
+    display:none;
+
+    position:relative;
+
+    z-index:5;
+
+    padding:30px;
+
+    max-width:800px;
+
+    animation:entrada 2s ease;
 
 }
 
+
+
+.galeria{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+
+
+.galeria img{
+
+    width:100%;
+
+    max-width:350px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 20px rgba(255,255,255,.5);
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    animation:fotoEntrada 1.5s forwards;
+
+}
+
+
+
+.galeria img:nth-child(1){animation-delay:.2s;}
+.galeria img:nth-child(2){animation-delay:.4s;}
+.galeria img:nth-child(3){animation-delay:.6s;}
+.galeria img:nth-child(4){animation-delay:.8s;}
+.galeria img:nth-child(5){animation-delay:1s;}
+
+
+
+@keyframes fotoEntrada{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px) scale(.95);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+
+</style>
+
+
+
+
+<script>
+
+
+function abrirHistoria(){
+
+
+document.querySelector(".content").style.display="none";
+
+
+document.querySelector(".historia").style.display="block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+
 function reproducirMusica(){
 
-    const musica = document.getElementById("cancion");
 
-    musica.currentTime = 0;
-    musica.play().catch(error => console.log(error));
-  }
+const musica=document.getElementById("cancion");
 
-    
+
+musica.play();
+
+
+}
+
+
+
 </script>
+
+
+
+</body>
+
+</html>
+
+
+</div>
+
+
+
+<!-- ===== CAPÍTULO II ===== -->
+
+
+<div class="historia">
+
+
+<h1>
+Capítulo II
+</h1>
+
+
+<p>
+No todos los recuerdos necesitan una fecha,
+porque algunos simplemente se quedan viviendo en el corazón.
+</p>
+
+
+<p>
+Cada fotografía guarda un instante,
+una mirada, una sonrisa y una pequeña parte de nuestra historia.
+</p>
+
+
+
+<div class="galeria">
+
+
+<img src="Recuerdos/foto1.jpg.jpeg">
+<img src="Recuerdos/foto2.jpg.jpeg">
+<img src="Recuerdos/foto3.jpg.jpeg">
+<img src="Recuerdos/foto4.jpg.jpeg">
+<img src="Recuerdos/foto5.jpg.jpeg">
+<img src="Recuerdos/foto6.jpg.jpeg">
+
+<img src="Recuerdos/foto7.jpg.jpeg">
+<img src="Recuerdos/foto8.jpg.jpeg">
+<img src="Recuerdos/foto9.jpg.jpeg">
+<img src="Recuerdos/foto10.jpg.jpeg">
+<img src="Recuerdos/foto11.jpg.jpeg">
+<img src="Recuerdos/foto12.jpg.jpeg">
+
+<img src="Recuerdos/foto13.jpg.jpeg">
+<img src="Recuerdos/foto14.jpg.jpeg">
+<img src="Recuerdos/foto15.jpg.jpeg">
+<img src="Recuerdos/foto16.jpg.jpeg">
+<img src="Recuerdos/foto17.jpg.jpeg">
+<img src="Recuerdos/foto18.jpg.jpeg">
+
+<img src="Recuerdos/foto19.jpg.jpeg">
+<img src="Recuerdos/foto20.jpg.jpeg">
+<img src="Recuerdos/foto21.jpg.jpeg">
+<img src="Recuerdos/foto22.jpg.jpeg">
+<img src="Recuerdos/foto23.jpg.jpeg">
+<img src="Recuerdos/foto24.jpg.jpeg">
+
+<img src="Recuerdos/foto25.jpg.jpeg">
+<img src="Recuerdos/foto26.jpg.jpeg">
+<img src="Recuerdos/foto27.jpg.jpeg">
+<img src="Recuerdos/foto28.jpg.jpeg">
+<img src="Recuerdos/foto29.jpg.jpeg">
+<img src="Recuerdos/foto30.jpg.jpeg">
+
+<img src="Recuerdos/foto31.jpg.jpeg">
+<img src="Recuerdos/foto32.jpg.jpeg">
+<img src="Recuerdos/foto33.jpg.jpeg">
+
+
+</div>
+
+
+</div>
+
+
+
+
+<style>
+
+
+/* ===== CAPÍTULO II ESTILO ÁLBUM ===== */
+
+
+.historia{
+
+    display:none;
+
+    position:relative;
+
+    z-index:5;
+
+    padding:30px;
+
+    max-width:800px;
+
+    animation:entrada 2s ease;
+
+}
+
+
+
+.galeria{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:40px;
+
+}
+
+
+
+.galeria img{
+
+    width:100%;
+
+    max-width:350px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 20px rgba(255,255,255,.5);
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    animation:fotoEntrada 1.5s forwards;
+
+}
+
+
+
+.galeria img:nth-child(1){animation-delay:.2s;}
+.galeria img:nth-child(2){animation-delay:.4s;}
+.galeria img:nth-child(3){animation-delay:.6s;}
+.galeria img:nth-child(4){animation-delay:.8s;}
+.galeria img:nth-child(5){animation-delay:1s;}
+
+
+
+@keyframes fotoEntrada{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px) scale(.95);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+
+</style>
+
+
+
+
+<script>
+
+
+function abrirHistoria(){
+
+
+document.querySelector(".content").style.display="none";
+
+
+document.querySelector(".historia").style.display="block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+
+function reproducirMusica(){
+
+
+const musica=document.getElementById("cancion");
+
+
+musica.play();
+
+
+}
+
+
+
+</script>
+
 
 
 </body>
