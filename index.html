@@ -324,56 +324,54 @@ button{
         transform:translateY(0) scale(1);
     }
 
-/* Estrellas */
+ /* ===== ESTRELLAS VAN GOGH ===== */
 
-.stars{
+.sky::before{
 
-    position:fixed;
+    content:"";
+
+    position:absolute;
+
     inset:0;
 
     pointer-events:none;
 
-    z-index:1;
+    background-image:
+        radial-gradient(circle,#fff9c4 2px,transparent 3px),
+        radial-gradient(circle,#ffffff 1.5px,transparent 2.5px),
+        radial-gradient(circle,#ffe082 3px,transparent 4px),
+        radial-gradient(circle,#fffde7 2px,transparent 3px);
 
-    overflow:hidden;
+    background-size:
+        180px 180px,
+        250px 250px,
+        320px 320px,
+        420px 420px;
 
-}
+    animation:brilloEstrellas 6s ease-in-out infinite alternate;
 
-.star{
-
-    position:absolute;
-
-    width:3px;
-    height:3px;
-
-    background:white;
-
-    border-radius:50%;
-
-    opacity:.2;
-
-    animation:brillar 3s infinite alternate;
+    opacity:.8;
 
 }
 
-@keyframes brillar{
+@keyframes brilloEstrellas{
 
     from{
 
-        opacity:.2;
-        transform:scale(1);
+        opacity:.5;
+        filter:drop-shadow(0 0 2px #fff8b0);
 
     }
 
     to{
 
         opacity:1;
-        transform:scale(1.8);
+        filter:drop-shadow(0 0 8px #ffe082);
 
     }
 
-
-
+}   
+    
 </style>
 
 </head>
@@ -383,8 +381,6 @@ button{
 
 
 <div class="sky"></div>
-
- <div class="stars" id="stars"></div>   
 
 
 <img class="girasol g1" src="Imagenes/Girasoles.webp">
@@ -535,22 +531,6 @@ function reproducirMusica(){
     musica.play().catch(error => console.log(error));
   }
 
-const estrellas = document.getElementById("stars");
-
-for(let i=0;i<80;i++){
-
-    let star=document.createElement("div");
-
-    star.className="star";
-
-    star.style.left=Math.random()*100+"%";
-    star.style.top=Math.random()*100+"%";
-
-    star.style.animationDelay=Math.random()*4+"s";
-
-    estrellas.appendChild(star);
-
-}
     
 </script>
 
