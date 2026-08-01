@@ -522,17 +522,15 @@ to{
 }    
 
 /* =======================
-      GALERIA FOTOS
+      CARRUSEL FOTOS
 ======================= */
-
 
 .galeriaFotos{
 
-    padding:80px 30px;
+    padding:80px 20px;
     text-align:center;
 
 }
-
 
 .galeriaFotos h2{
 
@@ -542,57 +540,64 @@ to{
 
 }
 
+.sliderFotos{
 
-.fotos{
-
-    columns:3 300px;
-
-    column-gap:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
 
 }
 
+#fotoActual{
 
-.fotoCard{
-
-    break-inside:avoid;
-
-    margin-bottom:25px;
+    width:100%;
+    max-width:700px;
+    max-height:700px;
 
     border-radius:20px;
 
-    overflow:hidden;
+    border:3px solid rgba(248,216,106,.5);
 
-    background:rgba(255,255,255,.08);
+    box-shadow:0 0 30px rgba(248,216,106,.25);
 
-    backdrop-filter:blur(8px);
-
-}
-
-
-.fotoCard img{
-
-    width:100%;
-
-    height:auto;
-
-    display:block;
-
-    transition:.4s;
+    object-fit:contain;
 
 }
 
+.btnSlider{
 
-.fotoCard:hover img{
+    width:60px;
+    height:60px;
 
-    transform:scale(1.03);
+    border:none;
+    border-radius:50%;
+
+    background:#f8d86a;
+    color:#111;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.3s;
 
 }
 
+.btnSlider:hover{
 
+    transform:scale(1.1);
 
-.fotoCard:hover img{
+}
 
-    transform:scale(1.08);
+#contadorFotos{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+    color:#f8d86a;
 
 }
     
@@ -649,6 +654,61 @@ for(let i=0;i<40;i++){
 
 }
 
+/* =======================
+      CARRUSEL FOTOS
+======================= */
+
+const fotos = [];
+
+for(let i = 1; i <= 33; i++){
+
+    fotos.push(`Recuerdos/foto${i}.jpg.jpeg`);
+
+}
+
+let indiceFoto = 0;
+
+const fotoActual = document.getElementById("fotoActual");
+const contadorFotos = document.getElementById("contadorFotos");
+
+function actualizarFoto(){
+
+    fotoActual.src = fotos[indiceFoto];
+
+    contadorFotos.textContent = `${indiceFoto + 1} / ${fotos.length}`;
+
+}
+
+document.getElementById("siguienteFoto").addEventListener("click",()=>{
+
+    indiceFoto++;
+
+    if(indiceFoto >= fotos.length){
+
+        indiceFoto = 0;
+
+    }
+
+    actualizarFoto();
+
+});
+
+document.getElementById("anteriorFoto").addEventListener("click",()=>{
+
+    indiceFoto--;
+
+    if(indiceFoto < 0){
+
+        indiceFoto = fotos.length - 1;
+
+    }
+
+    actualizarFoto();
+
+});
+
+actualizarFoto();
+    
 </script>
 
 
@@ -743,28 +803,6 @@ caídas y motivos para volver a elegirnos.
 </button>
     
     <section class="capitulo">
-
-<h2>
-Capítulo I
-</h2>
-
-<h3>
-Antes de saber que eras tú
-</h3>
-
-<p>
-
-Todavía sonrío cuando recuerdo al niño que intentaba llamar tu atención sin saber que, años después, terminaría escribiendo un libro sobre ti.
-
-</p>
-
-<p>
-
-Hay personas que llegan a nuestra vida sin avisar, como una casualidad más del camino, pero con el tiempo descubrimos que algunas coincidencias tenían un propósito.
-
-</p>
-        
-<section class="capitulo">
 
 
 <h2>
@@ -945,51 +983,23 @@ Desde ese instante comenzó una aventura llena de momentos inolvidables, aprendi
 
 <section class="galeriaFotos">
 
-<h2>
-Nuestros recuerdos
-</h2>
+    <h2>Nuestros recuerdos</h2>
 
-<div class="fotos">
+    <div class="sliderFotos">
 
+        <button class="btnSlider" id="anteriorFoto">❮</button>
 
-<div class="fotoCard"><img src="Recuerdos/foto1.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto2.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto3.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto4.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto5.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto6.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto7.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto8.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto9.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto10.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto11.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto12.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto13.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto14.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto15.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto16.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto17.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto18.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto19.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto20.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto21.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto22.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/Foto23.jpg.jpeg"></div>    
-<div class="fotoCard"><img src="Recuerdos/foto24.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto25.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto26.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto27.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto28.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto29.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto30.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto31.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto32.jpg.jpeg"></div>
-<div class="fotoCard"><img src="Recuerdos/foto33.jpg.jpeg"></div>
+        <img id="fotoActual"
+             src="Recuerdos/foto1.jpg.jpeg"
+             alt="Nuestros recuerdos">
 
+        <button class="btnSlider" id="siguienteFoto">❯</button>
 
-</div>
+    </div>
 
-</section>        
+    <p id="contadorFotos">1 / 33</p>
+
+</section>
         
 </div>
 
