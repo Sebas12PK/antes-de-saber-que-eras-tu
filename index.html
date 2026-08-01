@@ -601,14 +601,82 @@ to{
 
 }
 
+.videoCard{
+
+    max-width:900px;
+    margin:40px auto;
+    padding:12px;
+
+    background:rgba(20,35,45,0.35);
+
+    border:2px solid rgba(80,220,255,.45);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 0 18px rgba(80,220,255,.35),
+        0 0 45px rgba(80,220,255,.15),
+        0 15px 35px rgba(0,0,0,.40);
+
+    transition:.4s;
+
+    animation: brilloVideo 5s ease-in-out infinite;
+
+}
+
+.videoCard:hover{
+
+    transform:translateY(-6px) scale(1.01);
+
+    border-color:rgba(120,240,255,.9);
+
+    box-shadow:
+        0 0 30px rgba(80,220,255,.60),
+        0 0 60px rgba(80,220,255,.30),
+        0 20px 45px rgba(0,0,0,.45);
+
+}
+
 .videoCard iframe{
 
     width:100%;
-    max-width:800px;
-    height:450px;
+    aspect-ratio:16/9;
+
+    border:none;
+
     border-radius:20px;
 
-}    
+    display:block;
+
+    
+}
+  
+@keyframes brilloVideo{
+
+    0%{
+        box-shadow:
+            0 0 18px rgba(80,220,255,.35),
+            0 0 45px rgba(80,220,255,.15),
+            0 15px 35px rgba(0,0,0,.40);
+    }
+
+    50%{
+        box-shadow:
+            0 0 35px rgba(80,220,255,.70),
+            0 0 70px rgba(80,220,255,.40),
+            0 20px 45px rgba(0,0,0,.45);
+    }
+
+    100%{
+        box-shadow:
+            0 0 18px rgba(80,220,255,.35),
+            0 0 45px rgba(80,220,255,.15),
+            0 15px 35px rgba(0,0,0,.40);
+    }
+
+}
     
 </style>
 
