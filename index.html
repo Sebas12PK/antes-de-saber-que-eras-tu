@@ -545,26 +545,26 @@ to{
 
 .fotos{
 
-    display:grid;
+    columns:3 300px;
 
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
+    column-gap:25px;
 
 }
 
 
 .fotoCard{
 
-    overflow:hidden;
+    break-inside:avoid;
+
+    margin-bottom:25px;
 
     border-radius:20px;
+
+    overflow:hidden;
 
     background:rgba(255,255,255,.08);
 
     backdrop-filter:blur(8px);
-
-    animation:entrada 1.5s ease;
 
 }
 
@@ -575,11 +575,9 @@ to{
 
     height:auto;
 
-    object-fit:contain;
-
     display:block;
 
-    transition:.5s;
+    transition:.4s;
 
 }
 
