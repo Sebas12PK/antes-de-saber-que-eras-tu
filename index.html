@@ -660,6 +660,8 @@ for(let i=0;i<40;i++){
 
 const fotos = [];
 
+    
+
 for(let i = 1; i <= 33; i++){
 
     fotos.push(`Recuerdos/foto${i}.jpg.jpeg`);
@@ -672,6 +674,8 @@ let indiceFoto = 0;
 
 const fotoActual = document.getElementById("fotoActual");
 const contadorFotos = document.getElementById("contadorFotos");
+
+console.log("Carrusel cargado");    
 
 function actualizarFoto(){
 
@@ -710,6 +714,8 @@ document.getElementById("anteriorFoto").addEventListener("click",()=>{
 });
 
 actualizarFoto();
+
+});   
     
 </script>
 
